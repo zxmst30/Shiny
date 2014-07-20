@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pitch for Shiny Application</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Pitch for Shiny Application">
+  <meta name="author" content="Coursera Data Products Class - July 19, 2014">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Pitch for Shiny Application</h1>
+    <h2>Exponential Bacterial Growth Calculation</h2>
+    <p>Coursera Data Products Class - July 19, 2014<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>The &quot;Exponential Bacterial Growth Calculation&quot; app calculates the expected number and mass of bacteria based on a given number of bacteria at time 0, a given doubling time as well as the desired incubation time. </li>
+<li>The doubling time depends on factors such as species or strain of bacterium, availability of nutients, and temperature. </li>
+<li>This application assumes ideal growth conditions and unlimited availability of nutrients. Under these conditions bacteria grow exponentially. </li>
+<li>In natural environments the exonential growth of bacteria is limited by the amount of available nutrients and bacteria will stop growing and ultimately decline in number once all nutrients have been used up. </li>
+<li>This app is useful for scientist working with bacteria, or just for fun!</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Calculations performed by the App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The calculation of exponential bacterial growth is based on the following formula:</p>
+
+<p>\[N = N_0 \times e^{kt}\]</p>
+
+<ul>
+<li>\(N_0\) = inital number of bacteria </li>
+<li>e = Euler&#39;s number (2.718282)</li>
+<li>k = growth rate (= 1/doubling time) </li>
+<li>t = incubation time</li>
+</ul>
+
+<p><img src="bac.jpg" alt="alt text"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Using the App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Input:</p>
+
+<ul>
+<li>initial number of bacteria (integers between 1 and +infinity, default = 10)</li>
+<li>doubling time in minutes (integers between 1 and +infinity, default = 30 min)</li>
+<li>incubation time in minutes (integers between 60 and +infinity, default = 720 min)<br></li>
+</ul>
+
+<p>Running the app:</p>
+
+<ul>
+<li>Just enter desired values and push &quot;submit&quot;<br></li>
+</ul>
+
+<p>Output:</p>
+
+<ul>
+<li>displays the entered input values</li>
+<li>final number of bacteria (in scientific notation)</li>
+<li>total mass of bacteria in grams</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Example Calculation with Default Settings</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">BacterialGrowth &lt;- function(N0=10, dt=30, t=720) {format(N0*(2.718282^((1/dt)*t)),
+                                                    scientific = TRUE, digits = 3)}
+N0 &lt;-10; dt &lt;- 30; t &lt;- 720
+results &lt;- as.numeric(BacterialGrowth())
+mass &lt;- results*10^-12
+</code></pre>
+
+<p>Growing<br>
+10<br>
+bacteria with a doubling time of<br>
+30<br>
+minutes for a total of<br>
+720<br>
+minutes results in a number of</p>
+
+<pre><code>## [1] 2.65e+11
+</code></pre>
+
+<p>bacteria with a total mass of 0.265 grams. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Calculations performed by the App'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Using the App'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Example Calculation with Default Settings'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
