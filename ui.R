@@ -1,10 +1,13 @@
 library(shiny)
+library(markdown)
 
 shinyUI(fluidPage(
-
+        
           pageWithSidebar(
-                  # Application title
-                  headerPanel("Exponential Bacterial Growth Calculation"),
+                  # Application title and documentation
+                  headerPanel(includeMarkdown("include.md")),
+               
+                        
                   # Data input panel
                   sidebarPanel(
                           numericInput(inputId="N0", label = "Initial number 
